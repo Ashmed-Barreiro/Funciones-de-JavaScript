@@ -353,3 +353,24 @@ const agruparPor = (arr, propiedad) => {
 };
 
 const aplanarArray = arr => arr.flat(Infinity);
+
+/**
+ * Función que crea un tablero de 10x10
+ */
+function tablero() {
+    let tablero = document.getElementById("tablero")
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            let celda = document.createElement("div")
+            celda.classList.add("celda")
+            celda.id = "celda " + i + "-" + j
+            celda.textContent = " "
+            tablero.appendChild(celda)
+        }
+    }
+}
+
+/**
+ * Matriz de elementos false tiene 10 posiciones donde sus hijos son nulls o vacios y luego con el map devuelve otra array de 10 posiciones false
+ */
+let ocupado = Array(10).fill(null).map(() => Array(10).fill(false));
