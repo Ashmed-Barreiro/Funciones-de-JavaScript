@@ -379,17 +379,17 @@ function creartecladoNumerico() {
 
     let teclado = document.getElementById("contenedor")
 
-let cantidadDeTeclas = 9
-for(let i = 1;i<=cantidadDeTeclas;i++){
-    let tecla = document.createElement("div")
-    tecla.textContent=`${i}`
-    teclado.appendChild(tecla)
-    tecla.classList.add("tecla")
-    tecla.style.backgroundColor="green"
+    let cantidadDeTeclas = 9
+    for (let i = 1; i <= cantidadDeTeclas; i++) {
+        let tecla = document.createElement("div")
+        tecla.textContent = `${i}`
+        teclado.appendChild(tecla)
+        tecla.classList.add("tecla")
+        tecla.style.backgroundColor = "green"
+    }
 }
-}
- //Problema1
- function memory() {
+//Problema1
+function memory() {
     let memory = document.getElementById("p1_resultado")
     //Creamos el for para generar las cartas
     for (let i = 2; i < 6; i++) {
@@ -597,49 +597,48 @@ let sudokuBoard = [
     [".", ".", ".", ".", "8", ".", ".", "7", "9"]
 ];
 
-function clases(){
-    const coches=[]
-    let coche= document.getElementById("coches")
-    
-class Coche{ 
-    constructor(marca,modelo,cilindrada,combustible,encendido){
-        this.marca=marca
-        this.modelo=modelo
-        this.cilindrada=cilindrada
-        this.combustible=combustible
-        this.encendido=encendido
+function clases() {
+    const coches = []
+    let coche = document.getElementById("coches")
+
+    class Coche {
+        constructor(marca, modelo, cilindrada, combustible, encendido) {
+            this.marca = marca
+            this.modelo = modelo
+            this.cilindrada = cilindrada
+            this.combustible = combustible
+            this.encendido = encendido
+        }
+        encender() {
+            let motor = document.createElement("div")
+            motor.classList.add("motor")
+            motor.textContent = `${this.marca} - Encendido`
+            motor.style.backgroundColor = "green"
+            motor.style.fontSize = "15px"
+            coche.appendChild(motor)
+            this.encendido = true
+        }
+        apagar() {
+            let motor = document.createElement("div")
+            motor.classList.add("motor")
+            motor.textContent = `${this.marca} - Apagado`
+            motor.style.background = "red"
+            motor.style.fontSize = "15px"
+            coche.appendChild(motor)
+            this.encendido = false
+        }
     }
-    encender(){
-        let motor = document.createElement("div")
-        motor.classList.add("motor")
-        motor.textContent=`${this.marca} - Encendido`
-        motor.style.backgroundColor = "green"
-        motor.style.fontSize="15px"   
-        coche.appendChild(motor)
-        this.encendido = true
-    }
-    apagar(){
-        let motor = document.createElement("div")
-        motor.classList.add("motor")
-        motor.textContent=`${this.marca} - Apagado`
-        motor.style.background="red"
-        motor.style.fontSize="15px"
-        coche.appendChild(motor)
-        this.encendido = false
-    }
+
+    let volvo = new Coche("Volvo", 10, 1500, "Gasolina", false)
+    coches.push(volvo)
+    let ford = new Coche("Ford", 19, 1600, "Diesel", false)
+    coches.push(ford)
+    volvo.encender()
+    ford.encender()
+
+
 }
-
-let volvo = new Coche ("Volvo",10,1500,"Gasolina",false)
-coches.push(volvo)
-let ford = new Coche("Ford",19,1600,"Diesel",false) 
-coches.push(ford)
-volvo.encender()
-ford.encender()
-
-
-}
-
-function init(){
-  const coches =   clases()
+function init() {
+    clases()
     creartecladoNumerico()
 }
