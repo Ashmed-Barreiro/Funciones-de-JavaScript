@@ -1,0 +1,7 @@
+.tecla{
+    border: 1px solid black;
+
+}
+.teclado{
+    display: flex;
+}

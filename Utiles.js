@@ -374,3 +374,17 @@ function tablero() {
  * Matriz de elementos false tiene 10 posiciones donde sus hijos son nulls o vacios y luego con el map devuelve otra array de 10 posiciones false
  */
 let ocupado = Array(10).fill(null).map(() => Array(10).fill(false));
+
+function init(){
+
+let teclado = document.getElementById("contenedor")
+
+let cantidadDeTeclas = 9
+for(let i = 0;i<cantidadDeTeclas;i++){
+    let tecla = document.createElement("div")
+    tecla.textContent=`${i}`
+    teclado.appendChild(tecla)
+    tecla.classList.add("tecla")
+    tecla.style.backgroundColor="green"
+}
+}
