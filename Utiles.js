@@ -597,48 +597,51 @@ let sudokuBoard = [
     [".", ".", ".", ".", "8", ".", ".", "7", "9"]
 ];
 
-function clases() {
+/*Ejercicio que crea cosas en el dom, en este caso enciende los coches mediante el uso de botones, */
     const coches = []
     let coche = document.getElementById("coches")
 
-    class Coche {
-        constructor(marca, modelo, cilindrada, combustible, encendido) {
-            this.marca = marca
-            this.modelo = modelo
-            this.cilindrada = cilindrada
-            this.combustible = combustible
-            this.encendido = encendido
+    class Carro {
+        constructor(marca, modelo, cilindrada, combustible,encendido) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.cilindrada = cilindrada;
+            this.combustible = combustible;
+            this.encendido = encendido;
         }
+
         encender() {
-            let motor = document.createElement("div")
-            motor.classList.add("motor")
-            motor.textContent = `${this.marca} - Encendido`
-            motor.style.backgroundColor = "green"
-            motor.style.fontSize = "15px"
-            coche.appendChild(motor)
-            this.encendido = true
+            this.encendido = true;
+            this.actualizarEstado();
         }
+
         apagar() {
-            let motor = document.createElement("div")
-            motor.classList.add("motor")
-            motor.textContent = `${this.marca} - Apagado`
-            motor.style.background = "red"
-            motor.style.fontSize = "15px"
-            coche.appendChild(motor)
-            this.encendido = false
+            this.encendido = false;
+            this.actualizarEstado();
+        }
+
+        actualizarEstado() {
+            let cocheDiv = document.getElementById("coches");
+            cocheDiv.innerHTML = ""; // Esto es para limpiar antes de actualizar
+            
+            let estado = document.createElement("div");
+            estado.classList.add("motor");
+            estado.textContent = `${this.marca} - ${this.encendido ? "Encendido" : "Apagado"}`;
+            estado.style.backgroundColor = this.encendido ? "green" : "red";
+            cocheDiv.appendChild(estado);
         }
     }
 
-    let volvo = new Coche("Volvo", 10, 1500, "Gasolina", false)
-    coches.push(volvo)
-    let ford = new Coche("Ford", 19, 1600, "Diesel", false)
-    coches.push(ford)
-    volvo.encender()
-    ford.encender()
+    let volvo = new Carro("Volvo", 10, 1500, "Gasolina", false)
+    let ford = new Carro("Ford", 19, 1600, "Diesel", false)
+    coches.push(volvo,ford)
+
+    /**Esto hace que se interacctue con los botones */
+    document.getElementById("btnEncender").addEventListener("click", () => volvo.encender());
+    document.getElementById("btnApagar").addEventListener("click", () => volvo.apagar());
+    
 
 
-}
 function init() {
-    clases()
     creartecladoNumerico()
 }
