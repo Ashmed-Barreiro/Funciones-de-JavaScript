@@ -145,3 +145,78 @@ function añadirAlDom(id, resultado) {
     }
     elemento.innerHTML = `${resultado}`;
 }
+
+function comprobarStrings(array) {
+    return array.every(element => typeof element === 'string');
+}
+
+function comprobarPares(array) {
+     if(array.length % 2 === 0){
+    return true    
+    } else {
+        return false
+    }
+}
+
+function comprobarLongitud(array) {
+    if(array.length > 2){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function comprobarNumPar(array) {
+    return array.some(element => element % 2 === 0);
+}
+
+function devolverNuevoArray(array) {
+    return array.map(function(string){
+        if(typeof string === 'string'){
+            return string.length;
+        } else {
+            return null;
+        }
+
+    });
+}
+
+function multiplicarArray(array, multiplicador) {
+    return array.map(num => (typeof num === 'number' ? num * multiplicador : num));
+}
+
+function filtrarPorZ(array) {
+    return array.filter(element => typeof element === 'string' && element.startsWith('Z'));
+}
+
+function filtrarMultiplosDe5(array) {
+    return array.filter(num => typeof num === 'number' && num % 5 === 0);
+}
+
+function buscarPrimeroConTamanio5(array) {
+    return array.find(element => typeof element === 'string' && element.length >= 5);
+}
+
+function buscarUltimoQueEmpiezaPorP(array) {
+    return array.reverse().find(element => typeof element === 'string' && element.startsWith('P'));
+}
+
+function posicionPrimerElementoPorT(array) {
+    return array.find(el => typeof el === 'string' && el.startsWith('T'));
+}
+
+function buscarUltimoPar(array) {
+    return array.reverse().find(num => typeof num === 'number' && num % 2 === 0);
+}
+
+function sumarArray(array) {
+    return array.reduce((total, num) =>  total + num, 0);
+}
+
+function restarArray(array) {
+    return array.reduce((total, num) =>  total - num);
+}
+
+function restaDesdeUltimo(array) {
+    return array.slice().reverse().reduce((acc, num) => (typeof num === 'number' ? acc - num : acc), 0);
+}
