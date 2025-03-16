@@ -1,3 +1,4 @@
+/* Este css es para el teclado númerico*/
 .tecla {
     width: 100px;
     height: 100px;
@@ -7,18 +8,16 @@
     align-content: center;
     margin: 5px;
 }
-
-div {
+#contenedor {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
-
-
-div:hover {
+.tecla:hover {
     background-color: aquamarine;
     color: darkviolet;
     cursor: crosshair;
@@ -33,3 +32,69 @@ div:hover {
             rgba(0, 255, 0, 0.5),
             rgba(0, 255, 0, 0) 70.71%) beige;
 }
+/*hasta aqui teclado númerico*/
+/*aqui css del memory*/
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+.code,
+.result {
+    font-family: 'Courier New', Courier, monospace;
+    color: grey;
+}
+
+.result {
+    color: blue;
+}
+
+article {
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 2px;
+}
+
+.importante {
+    color: red;
+}
+
+.puntuacion {
+    font-style: italic;
+
+}
+
+.carta {
+    background-color: rgb(157, 157, 163);
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+button {
+    background-color: aqua;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+#p1_resultado {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(4, 50px);
+}
+
+#problema1 {
+    justify-content: center;
+}
+/*hasta aqui memory y algo mas seguramente*/

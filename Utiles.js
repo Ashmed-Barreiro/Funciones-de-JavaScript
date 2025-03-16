@@ -388,7 +388,34 @@ for(let i = 0;i<cantidadDeTeclas;i++){
     tecla.style.backgroundColor="green"
 }
 }
+ //Problema1
+ function memory() {
+    let memory = document.getElementById("p1_resultado")
+    //Creamos el for para generar las cartas
+    for (let i = 2; i < 6; i++) {
+        for (let j = 2; j < 6; j++) {
+            let carta = document.createElement("div")
+            carta.classList.add("carta")
+            carta.textContent = " "
+            memory.appendChild(carta)
+        }
+    }
 
+}
+//Esta funcion crea números aleatorios del 1 al 8
+function numeroAleatorio() {
+    return Math.floor(Math.random() * 8) + 1
+}
+// Esta funcion gira las cartas y les da el contenido y el fondo azul
+function girarCartas() {
+    let cartas = document.querySelectorAll(".carta")
+    cartas.forEach((carta) => {
+        carta.textContent = numeroAleatorio()
+        carta.style.background = "blue"
+    })
+
+
+}
 // 1️⃣ Encontrar el número más grande en un array
 function maximoArray(arr) {
     return Math.max(...arr);
