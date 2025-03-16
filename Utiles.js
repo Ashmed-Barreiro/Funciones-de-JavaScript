@@ -220,3 +220,136 @@ function restarArray(array) {
 function restaDesdeUltimo(array) {
     return array.slice().reverse().reduce((acc, num) => (typeof num === 'number' ? acc - num : acc), 0);
 }
+
+function filtrarMayores(arr, limite) {
+    return arr.filter(num => num > limite);
+}
+
+function ordenarPorPropiedad(arr, propiedad) {
+    return arr.sort((a, b) => a[propiedad] > b[propiedad] ? 1 : -1);
+}
+
+function sumaArray(arr) {
+    return arr.reduce((acum, num) => acum + num, 0);
+}
+
+function contarOcurrencias(arr) {
+    let mapa = new Map();
+    arr.forEach(el => mapa.set(el, (mapa.get(el) || 0) + 1));
+    return mapa;
+}
+
+function eliminarDuplicados(arr) {
+    return [...new Set(arr)];
+}
+
+function objetoAJson(obj) {
+    return JSON.stringify(obj);
+}
+
+function jsonAObjeto(json) {
+    return JSON.parse(json);
+}
+
+function tienePropiedad(obj, prop) {
+    return obj.hasOwnProperty(prop);
+}
+
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    get descripcion() {
+        return `${this.nombre} tiene ${this.edad} años`;
+    }
+
+    set cambiarNombre(nuevoNombre) {
+        this.nombre = nuevoNombre;
+    }
+}
+
+class Estudiante extends Persona {
+    constructor(nombre, edad, curso) {
+        super(nombre, edad);
+        this.curso = curso;
+    }
+
+    info() {
+        return `${this.nombre} está en el curso ${this.curso}`;
+    }
+}
+
+function elementoMasFrecuente(arr) {
+    let mapa = new Map();
+    arr.forEach(el => mapa.set(el, (mapa.get(el) || 0) + 1));
+    return [...mapa.entries()].reduce((a, b) => b[1] > a[1] ? b : a)[0];
+}
+
+function valoresUnicos(arr, propiedad) {
+    return [...new Set(arr.map(obj => obj[propiedad]))];
+}
+
+function dividirArray(arr, tamaño) {
+    let resultado = [];
+    for (let i = 0; i < arr.length; i += tamaño) {
+        resultado.push(arr.slice(i, i + tamaño));
+    }
+    return resultado;
+}
+
+function fusionarObjetos(obj1, obj2) {
+    return { ...obj2, ...obj1 };
+}
+
+function objetoAArray(obj) {
+    return Object.entries(obj);
+}
+
+function contarPalabras(texto) {
+    let mapa = new Map();
+    texto.split(" ").forEach(palabra => {
+        palabra = palabra.toLowerCase();
+        mapa.set(palabra, (mapa.get(palabra) || 0) + 1);
+    });
+    return mapa;
+}
+
+function setAArrayOrdenado(set) {
+    return [...set].sort();
+}
+
+class Utilidades {
+    static generarNumeroAleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+}
+
+const saldoPrivado = Symbol("saldo");
+
+class CuentaBancaria {
+    constructor(saldo) {
+        this[saldoPrivado] = saldo;
+    }
+
+    getSaldo() {
+        return this[saldoPrivado];
+    }
+}
+
+function reemplazarDuplicados(arr) {
+    let seen = new Set();
+    return arr.map(el => seen.has(el) ? "X" : (seen.add(el), el));
+}
+
+const agruparPor = (arr, propiedad) => {
+    return arr.reduce((acc, obj) => {
+        let key = obj[propiedad];
+        if (!acc[key]) acc[key] = [];
+        acc[key].push(obj);
+        return acc;
+    }, {});
+};
+
+const aplanarArray = arr => arr.flat(Infinity);
