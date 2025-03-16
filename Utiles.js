@@ -17,7 +17,7 @@ function todosPares(numbers) {
 Función que recibe un array y que comprueba si al menos un elemento del array tiene una longitud mayor que n.
  Si es que sí devuelve true en caso 
 */
-function mayorQueN(myStrings,n) {
+function mayorQueN(myStrings, n) {
     let mayorQue = myStrings.some(element => element.length > n)
     console.log(mayorQue)
     return mayorQue
@@ -26,7 +26,7 @@ function mayorQueN(myStrings,n) {
  Función que recibe un array y que comprueba si al menos un número es par.
   Si es que sí devuelve true en caso contrario false.
  */
-  function numeroPAr(numbers) {
+function numeroPAr(numbers) {
     let numerosPar2 = numbers.some(element => element % 2 == 0)
     console.log(numerosPar2)
     return numerosPar2
@@ -37,21 +37,21 @@ Función que recibe un array y que devuelve un nuevo array con la longitud de ca
 */
 
 function transformarArray(myStrings) {
-    const nuevaArray = myStrings.map(palabra => palabra.length) 
+    const nuevaArray = myStrings.map(palabra => palabra.length)
     console.log(nuevaArray)
-    return nuevaArray 
+    return nuevaArray
 }
 
 /*Función que recibe un array y un número y que devuelve todos los elementos del array multiplicado por dicho número pasado por  parámetro.
  */
-function multiplicarLosNumeros(numbers,mult){
+function multiplicarLosNumeros(numbers, mult) {
     const numerosMultiplicados = numbers.map(numero => numero * mult)
     return numerosMultiplicados
 }
 
 /*Función que recibe un array y que devuelve un nuevo array con solo los elementos que empiezan por X.
  */
-function elementosZ(myStrings,x){
+function elementosZ(myStrings, x) {
     var arrayStrings = myStrings.filter(string => typeof string === "string")
     var nuevoA = arrayStrings.filter(palabra => palabra.toLowerCase().startsWith(x))
     return nuevoA
@@ -59,30 +59,30 @@ function elementosZ(myStrings,x){
 
 /*Función que recibe un array y que devuelve un nuevo array con solo los elementos que sean múltiplos de n.
  */
-function multiplos5(numbers,n){
+function multiplos5(numbers, n) {
     const multiplos = numbers.filter(number => number % n == 0)
     return multiplos
 }
 
 /*Función que recibe un array y que devuelve el primer elemento cuyo tamaño sea superior o igual a n. 
 */
-function tamañoElemento(myStrings,n){
+function tamañoElemento(myStrings, n) {
     const filtradoString = myStrings.filter(string => typeof string === "string")
-    const filtradoTamaño = filtradoString.find(string => string.length>=n)
+    const filtradoTamaño = filtradoString.find(string => string.length >= n)
     return filtradoTamaño
 }
 
 /*Función que recibe un array y que devuelve el último elemento que empieza por X.
  */
-function ultimoElemento(myStrings,x){
+function ultimoElemento(myStrings, x) {
     const filtradoString = myStrings.filter(string => typeof string === "string")
     const filtradoUltimo = filtradoString.reverse()
-    return filtradoUltimo.find(ultimo=>ultimo.toLowerCase().startsWith(x))
+    return filtradoUltimo.find(ultimo => ultimo.toLowerCase().startsWith(x))
 }
 
 /* Función que recibe un array y que devuelve la posición del primer elemento que empieza por X
  */
-function primeraPocicion(myStrings,x){
+function primeraPocicion(myStrings, x) {
     const filtradoString = myStrings.filter(s => typeof s === "string")
     const filtradoPrimero = filtradoString.find(a => a.toLowerCase().startsWith(x))
     return filtradoPrimero
@@ -90,33 +90,33 @@ function primeraPocicion(myStrings,x){
 
 /*Función que recibe un array y que devuelve el último elemento par
 */
-function ultimoPar(numbers){
-    const numberReverse=numbers.reverse()
-    const ultimoPar = numberReverse.find(n => n % 2 == 0 )
+function ultimoPar(numbers) {
+    const numberReverse = numbers.reverse()
+    const ultimoPar = numberReverse.find(n => n % 2 == 0)
     return ultimoPar
 }
 
 /*
 *Función que recibe un array y que devuelve la suma de todos sus elementos. 
  */
-function sumaArray(numbers){
-    let total=0
-    let sumaTotal = numbers.reduce((total,numero) => total += numero)
+function sumaArray(numbers) {
+    let total = 0
+    let sumaTotal = numbers.reduce((total, numero) => total += numero)
     return sumaTotal
 }
 
 /*Función que recibe un array y que devuelve la resta del primer elemento menos el segundo y así sucesivamente.
  */
-function restaArray(numbers){
-    let resta = numbers.reduce((total,numero)=> total -= numero)
+function restaArray(numbers) {
+    let resta = numbers.reduce((total, numero) => total -= numero)
     return resta
 }
 
 /*Función que recibe un array y que devuelve la resta del último elemento menos el penúltimo y así sucesivamente
  */
-function restaReverse(numbers){
+function restaReverse(numbers) {
     let rev = numbers.reverse()
-    let resta = rev.reduce((total,numero) => total -= numero)
+    let resta = rev.reduce((total, numero) => total -= numero)
     return resta
 }
 /**
@@ -151,15 +151,15 @@ function comprobarStrings(array) {
 }
 
 function comprobarPares(array) {
-     if(array.length % 2 === 0){
-    return true    
+    if (array.length % 2 === 0) {
+        return true
     } else {
         return false
     }
 }
 
 function comprobarLongitud(array) {
-    if(array.length > 2){
+    if (array.length > 2) {
         return true;
     } else {
         return false;
@@ -171,8 +171,8 @@ function comprobarNumPar(array) {
 }
 
 function devolverNuevoArray(array) {
-    return array.map(function(string){
-        if(typeof string === 'string'){
+    return array.map(function (string) {
+        if (typeof string === 'string') {
             return string.length;
         } else {
             return null;
@@ -210,11 +210,11 @@ function buscarUltimoPar(array) {
 }
 
 function sumarArray(array) {
-    return array.reduce((total, num) =>  total + num, 0);
+    return array.reduce((total, num) => total + num, 0);
 }
 
 function restarArray(array) {
-    return array.reduce((total, num) =>  total - num);
+    return array.reduce((total, num) => total - num);
 }
 
 function restaDesdeUltimo(array) {
@@ -375,16 +375,16 @@ function tablero() {
  */
 let ocupado = Array(10).fill(null).map(() => Array(10).fill(false));
 
-function init(){
+function creartecladoNumerico() {
 
-let teclado = document.getElementById("contenedor")
+    let teclado = document.getElementById("contenedor")
 
-let cantidadDeTeclas = 9
-for(let i = 0;i<cantidadDeTeclas;i++){
-    let tecla = document.createElement("div")
-    tecla.textContent=`${i}`
-    teclado.appendChild(tecla)
-    tecla.classList.add("tecla")
-    tecla.style.backgroundColor="green"
-}
+    let cantidadDeTeclas = 9
+    for (let i = 1; i <= cantidadDeTeclas; i++) {
+        let tecla = document.createElement("div")
+        tecla.textContent = `${i}`
+        teclado.appendChild(tecla)
+        tecla.classList.add("tecla")
+        tecla.style.backgroundColor = "green"
+    }
 }

@@ -1,7 +1,35 @@
-.tecla{
-    border: 1px solid black;
-
+.tecla {
+    width: 100px;
+    height: 100px;
+    color: white;
+    font-size: 50px;
+    justify-content: center;
+    align-content: center;
+    margin: 5px;
 }
-.teclado{
+
+div {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+div:hover {
+    background-color: aquamarine;
+    color: darkviolet;
+    cursor: crosshair;
+    box-shadow: 0 0 0 5px skyblue;
+    background: radial-gradient(circle at 50% 0,
+            rgba(255, 0, 0, 0.5),
+            rgba(255, 0, 0, 0) 70.71%),
+        radial-gradient(circle at 6.7% 75%,
+            rgba(0, 0, 255, 0.5),
+            rgba(0, 0, 255, 0) 70.71%),
+        radial-gradient(circle at 93.3% 75%,
+            rgba(0, 255, 0, 0.5),
+            rgba(0, 255, 0, 0) 70.71%) beige;
 }
