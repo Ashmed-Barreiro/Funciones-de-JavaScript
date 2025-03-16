@@ -132,3 +132,16 @@ function añadirAlDom(id, resultado) {
     p.textContent = resultado;
     p.setAttribute('class', 'result');
 }
+/**
+ * Función que añade cosas al dom pero de Árgar
+ * @param {"Hace referrencia al id del elemento html donde quieres ponerlo"} id 
+ * @param {"Es la función o lo que quieras que se añada al dom"} resultado 
+ */
+function añadirAlDom(id, resultado) {
+    let elemento = document.getElementById(id);
+    if (!elemento) {
+        console.error(`No se encontró un elemento con id="${id}"`);
+        return;
+    }
+    elemento.innerHTML = `${resultado}`;
+}
