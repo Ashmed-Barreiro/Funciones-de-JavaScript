@@ -357,10 +357,10 @@ const aplanarArray = arr => arr.flat(Infinity);
 /**
  * Función que crea un tablero de 10x10
  */
-function tablero() {
-    let tablero = document.getElementById("tablero")
-    for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
+function hacerTablero() {
+    let tablero = document.getElementById("tableroResultado")
+    for (let i = 1; i < 11; i++) {
+        for (let j = 1; j < 11; j++) {
             let celda = document.createElement("div")
             celda.classList.add("celda")
             celda.id = "celda " + i + "-" + j
@@ -379,12 +379,195 @@ function creartecladoNumerico() {
 
     let teclado = document.getElementById("contenedor")
 
-    let cantidadDeTeclas = 9
-    for (let i = 1; i <= cantidadDeTeclas; i++) {
-        let tecla = document.createElement("div")
-        tecla.textContent = `${i}`
-        teclado.appendChild(tecla)
-        tecla.classList.add("tecla")
-        tecla.style.backgroundColor = "green"
+let cantidadDeTeclas = 9
+for(let i = 0;i<cantidadDeTeclas;i++){
+    let tecla = document.createElement("div")
+    tecla.textContent=`${i}`
+    teclado.appendChild(tecla)
+    tecla.classList.add("tecla")
+    tecla.style.backgroundColor="green"
+}
+}
+
+// 1️⃣ Encontrar el número más grande en un array
+function maximoArray(arr) {
+    return Math.max(...arr);
+}
+
+// 2️⃣ Encontrar el número más pequeño en un array
+function minimoArray(arr) {
+    return Math.min(...arr);
+}
+
+// 3️⃣ Comprobar si todos los elementos cumplen una condición
+function todosCumplen(arr, condicion) {
+    return arr.every(condicion);
+}
+
+// 4️⃣ Comprobar si al menos un elemento cumple una condición
+function algunoCumple(arr, condicion) {
+    return arr.some(condicion);
+}
+
+// 5️⃣ Barajar (shuffle) un array aleatoriamente
+function mezclarArray(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+}
+
+// 6️⃣ Invertir un array sin modificar el original
+function invertirArray(arr) {
+    return [...arr].reverse();
+}
+
+// 7️⃣ Capitalizar la primera letra de cada palabra
+function capitalizarTexto(texto) {
+    return texto.replace(/\b\w/g, letra => letra.toUpperCase());
+}
+
+// 8️⃣ Contar cuántas veces aparece una letra en un texto
+function contarLetra(texto, letra) {
+    return texto.split("").filter(l => l === letra).length;
+}
+
+// 9️⃣ Invertir una cadena de texto
+function invertirTexto(texto) {
+    return texto.split("").reverse().join("");
+}
+
+// 🔟 Obtener las claves de un objeto como array
+function obtenerClaves(obj) {
+    return Object.keys(obj);
+}
+
+// 1️⃣1️⃣ Obtener los valores de un objeto como array
+function obtenerValores(obj) {
+    return Object.values(obj);
+}
+
+// 1️⃣2️⃣ Clonar un objeto sin referencias (deep copy)
+function clonarObjeto(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+// 1️⃣3️⃣ Obtener la fecha actual en formato YYYY-MM-DD
+function fechaActual() {
+    return new Date().toISOString().split("T")[0];
+}
+
+// 1️⃣4️⃣ Calcular la diferencia en días entre dos fechas
+function diferenciaDias(fecha1, fecha2) {
+    const f1 = new Date(fecha1);
+    const f2 = new Date(fecha2);
+    return Math.abs((f2 - f1) / (1000 * 60 * 60 * 24));
+}
+
+// 1️⃣5️⃣ Generar un número aleatorio entre un mínimo y un máximo
+function numeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// 1️⃣6️⃣ Calcular el factorial de un número
+function factorial(n) {
+    return n === 0 ? 1 : n * factorial(n - 1);
+}
+
+// 1️⃣7️⃣ Comprobar si un número es primo
+function esPrimo(num) {
+    if (num < 2) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+// 1️⃣8️⃣ Calcular la suma de los dígitos de un número
+function sumaDigitos(num) {
+    return num.toString().split("").reduce((acc, dig) => acc + parseInt(dig), 0);
+}
+
+// 1️⃣9️⃣ Clase Vehiculo con métodos básicos
+class Vehiculo {
+    constructor(marca, modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    obtenerInfo() {
+        return `${this.marca} ${this.modelo}`;
     }
 }
+
+// 2️⃣0️⃣ Clase Coche que hereda de Vehiculo
+class Coche extends Vehiculo {
+    constructor(marca, modelo, color) {
+        super(marca, modelo);
+        this.color = color;
+    }
+
+    obtenerInfoCompleta() {
+        return `${this.marca} ${this.modelo} de color ${this.color}`;
+    }
+}
+
+// 1️⃣ Encontrar la subsecuencia común más larga (LCS - Longest Common Subsequence)
+function lcs(str1, str2) {
+    let dp = Array(str1.length + 1).fill().map(() => Array(str2.length + 1).fill(0));
+
+    for (let i = 1; i <= str1.length; i++) {
+        for (let j = 1; j <= str2.length; j++) {
+            if (str1[i - 1] === str2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    return dp[str1.length][str2.length];
+}
+
+function solveSudoku(board) {
+    function isValid(row, col, num) {
+        let strNum = num.toString();
+        for (let i = 0; i < 9; i++) {
+            if (board[row][i] === strNum || board[i][col] === strNum ||
+                board[3 * Math.floor(row / 3) + Math.floor(i / 3)][3 * Math.floor(col / 3) + i % 3] === strNum) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function solve() {
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                if (board[i][j] === ".") {
+                    for (let num = 1; num <= 9; num++) {
+                        if (isValid(i, j, num)) {
+                            board[i][j] = num.toString();
+                            if (solve()) return true;
+                            board[i][j] = ".";
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    solve();
+    return board;
+}
+
+// Ejemplo:
+let sudokuBoard = [
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+];
