@@ -5,3 +5,16 @@
 .teclado{
     display: flex;
 }
+.celda{
+    background-color: rgb(157, 157, 163);
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 2rem;
+
+}
+#tableroResultado{
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    margin-left: 50px;
+}
