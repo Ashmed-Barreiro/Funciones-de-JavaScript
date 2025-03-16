@@ -357,10 +357,10 @@ const aplanarArray = arr => arr.flat(Infinity);
 /**
  * Función que crea un tablero de 10x10
  */
-function tablero() {
-    let tablero = document.getElementById("tablero")
-    for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
+function hacerTablero() {
+    let tablero = document.getElementById("tableroResultado")
+    for (let i = 1; i < 11; i++) {
+        for (let j = 1; j < 11; j++) {
             let celda = document.createElement("div")
             celda.classList.add("celda")
             celda.id = "celda " + i + "-" + j
