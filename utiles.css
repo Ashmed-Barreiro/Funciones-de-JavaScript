@@ -98,3 +98,11 @@ button {
     justify-content: center;
 }
 /*hasta aqui memory y algo mas seguramente*/
+/*aqui css de la clase coche*/
+.coches{
+    border: 1px solid red;
+    background-color: aqua;
+}
+.motor{
+    border: 1px solid black;
+}

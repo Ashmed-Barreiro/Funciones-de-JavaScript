@@ -380,7 +380,7 @@ function creartecladoNumerico() {
     let teclado = document.getElementById("contenedor")
 
 let cantidadDeTeclas = 9
-for(let i = 0;i<cantidadDeTeclas;i++){
+for(let i = 1;i<=cantidadDeTeclas;i++){
     let tecla = document.createElement("div")
     tecla.textContent=`${i}`
     teclado.appendChild(tecla)
@@ -413,8 +413,6 @@ function girarCartas() {
         carta.textContent = numeroAleatorio()
         carta.style.background = "blue"
     })
-
-
 }
 // 1️⃣ Encontrar el número más grande en un array
 function maximoArray(arr) {
@@ -598,3 +596,50 @@ let sudokuBoard = [
     [".", ".", ".", "4", "1", "9", ".", ".", "5"],
     [".", ".", ".", ".", "8", ".", ".", "7", "9"]
 ];
+
+function clases(){
+    const coches=[]
+    let coche= document.getElementById("coches")
+    
+class Coche{ 
+    constructor(marca,modelo,cilindrada,combustible,encendido){
+        this.marca=marca
+        this.modelo=modelo
+        this.cilindrada=cilindrada
+        this.combustible=combustible
+        this.encendido=encendido
+    }
+    encender(){
+        let motor = document.createElement("div")
+        motor.classList.add("motor")
+        motor.textContent=`${this.marca} - Encendido`
+        motor.style.backgroundColor = "green"
+        motor.style.fontSize="15px"   
+        coche.appendChild(motor)
+        this.encendido = true
+    }
+    apagar(){
+        let motor = document.createElement("div")
+        motor.classList.add("motor")
+        motor.textContent=`${this.marca} - Apagado`
+        motor.style.background="red"
+        motor.style.fontSize="15px"
+        coche.appendChild(motor)
+        this.encendido = false
+    }
+}
+
+let volvo = new Coche ("Volvo",10,1500,"Gasolina",false)
+coches.push(volvo)
+let ford = new Coche("Ford",19,1600,"Diesel",false) 
+coches.push(ford)
+volvo.encender()
+ford.encender()
+
+
+}
+
+function init(){
+  const coches =   clases()
+    creartecladoNumerico()
+}
