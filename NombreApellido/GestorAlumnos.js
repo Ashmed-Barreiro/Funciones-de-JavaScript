@@ -34,11 +34,11 @@ export class GestorAlumnos {
             this.alumnos.splice(index, 1);
         }
     }
-
+    //alumnos ordenado por media de mayor a menor (9 8 7)
     mostrarAlumnosOrdenados(){
         return this.alumnos.sort((a,b) => b.getMedia()-a.getMedia());
     }
-
+    //alumnos ordenado por nombre (A B C) 
     listarAlumnos(){
         let lista = [...this.alumnos].sort((a, b) => (a.nombre).localeCompare(b.nombre));
         return lista
